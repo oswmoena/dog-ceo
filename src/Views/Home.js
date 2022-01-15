@@ -60,7 +60,7 @@ export const Home = () => {
             Object.entries(message).map(([key, val], i) => {
                 if (val.length > 0) {
                     val.map(subbreed => {
-                        newArrSubBreeds.push({
+                        return newArrSubBreeds.push({
                             breed: key.toUpperCase(),
                             subBreed: subbreed.toUpperCase()
                         })
@@ -117,23 +117,25 @@ export const Home = () => {
                         />
                     </Grid>
                 </Grid>
-                <Divider variant="middle" style={{margin: '2% 0%'}} />
+                <Divider variant="middle" style={{ margin: '2% 0%' }} />
                 <Grid container spacing={3} justifyContent="space-between" className={classes.imageBlock}>
-                    {breedSelected.map(breed =>
-                    (
-                        <Grid item md={12} xs={12} key={breed}>
-                            <Typography variant="h4" color="initial" className={classes.title}>{breed}</Typography>
-                            <BreedContainer breed={breed} />
-                        </Grid>
-                    )
+                    {breedSelected.map(breed => {
+                        return (
+                            <Grid item md={12} xs={12} key={breed}>
+                                <Typography variant="h4" color="initial" className={classes.title}>{breed}</Typography>
+                                <BreedContainer breed={breed} />
+                            </Grid>
+                        )
+                    }
                     )}
-                    {subBreedSelected.map(({ breed, subBreed }) =>
-                    (
-                        <Grid item md={12} xs={12} key={subBreed}>
-                            <Typography variant="h4" color="initial" className={classes.title}>{breed} - {subBreed}</Typography>
-                            <SubBreedContainer breed={breed} subbreed={subBreed} />
-                        </Grid>
-                    )
+                    {subBreedSelected.map(({ breed, subBreed }) => {
+                        return (
+                            <Grid item md={12} xs={12} key={subBreed}>
+                                <Typography variant="h4" color="initial" className={classes.title}>{breed} - {subBreed}</Typography>
+                                <SubBreedContainer breed={breed} subbreed={subBreed} />
+                            </Grid>
+                        )
+                    }
                     )}
                 </Grid>
 
