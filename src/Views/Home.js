@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getAllBreeds } from '../Providers/Provider'
-import { Paper, Grid, Typography, Autocomplete, TextField, Divider } from '@mui/material'
+import { Paper, Grid, Typography, Autocomplete, TextField } from '@mui/material'
 import { createStyles, makeStyles } from '@mui/styles';
 import { BreedContainer } from '../Components/BreedContainer';
 import { SubBreedContainer } from '../Components/SubBreedContainer';
@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) =>
         },
         selectBreed: {
             width: '100%',
+        },
+        grid:{ 
+            paddingBottom: '10%'
         },
         title: {
             fontWeight: 'bold',
@@ -77,7 +80,7 @@ export const Home = () => {
     return (
         <div className={classes.home}>
             <Paper elevation={2} className={classes.paper}>
-                <Grid container spacing={3} justifyContent="space-between">
+                <Grid container spacing={3} justifyContent="space-between" className={classes.grid}>
                     <Grid item xs={12} md={12}>
                         <Typography variant="h3" color="initial" className={classes.title}>Dog-CEO</Typography>
                     </Grid>
@@ -117,7 +120,6 @@ export const Home = () => {
                         />
                     </Grid>
                 </Grid>
-                <Divider variant="middle" style={{ margin: '2% 0%' }} />
                 <Grid container spacing={3} justifyContent="space-between" className={classes.imageBlock}>
                     {breedSelected.map(breed => {
                         return (
