@@ -10,15 +10,13 @@ const useStyles = makeStyles((theme) =>
         paper: {
             padding: "1% 5%",
             border: '1px solid #666666',
-            color: 'black'
+            color: 'black',
+            fontFamily: 'Roboto-regular'
         },
         home: {
             padding: '2% 7% 0% 7%',
             backgroundColor: '#EEEEEE',
             height: '100vh'
-        },
-        selectBreed: {
-            width: '100%',
         },
         grid:{ 
             paddingBottom: '10%'
@@ -28,18 +26,10 @@ const useStyles = makeStyles((theme) =>
             padding: '1%',
             color: "#666666"
         },
-        autocomplete: {
-            cursor: 'pointer'
-        },
         imageBlock: {
             maxHeight: '600px',
             overflow: 'auto'
         },
-        divider: {
-            '& .MuiDivider-root': {
-                margin: '0px 50px'
-            }
-        }
     })
 );
 
@@ -91,6 +81,7 @@ export const Home = () => {
                             options={breeds}
                             getOptionLabel={(option) => option}
                             onChange={(event, value) => setBreedSelected(value)}
+                            noOptionsText="Error en la comunicación con el servidor"
                             renderInput={(params) => (
                                 <TextField
                                     {...params}
@@ -109,6 +100,7 @@ export const Home = () => {
                             groupBy={(option) => option.breed}
                             getOptionLabel={(option) => option.subBreed}
                             onChange={(event, value) => setSubBreedSelected(value)}
+                            noOptionsText="Error en la comunicación con el servidor"
                             renderInput={(params) => (
                                 <TextField
                                     {...params}
