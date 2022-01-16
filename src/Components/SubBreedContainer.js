@@ -32,17 +32,18 @@ export const SubBreedContainer = ({ breed, subbreed }) => {
         }
     }
 
-    return !error
-        ? subBreedImage.length > 0
-            ? (
-                <ImageItem images={subBreedImage} title={subbreed} />
-            ) : (
-                <div className={classes.loader}>
-                    <AutorenewIcon className={classes.animatedItem} />
-                </div>
-            ) : (
+    if (!error) {
+        <div className={classes.loader}>
+            <h3>Error en la comunicación con el servidor</h3>
+        </div>
+    }
+
+    return subBreedImage.length > 0
+        ? (
+            <ImageItem images={subBreedImage} title={subbreed} />
+        ) : (
             <div className={classes.loader}>
-                <h3>Error en la comunicación con el servidor</h3>
+                <AutorenewIcon className={classes.animatedItem} />
             </div>
         )
 }

@@ -44,17 +44,20 @@ export const BreedContainer = ({ breed }) => {
         }
     }
 
-    return !error
-        ? breedImage.length > 0
-            ? (
-                <ImageItem images={breedImage} title={breed} />
-            ) : (
-                <div className={classes.loader}>
-                    <AutorenewIcon className={classes.animatedItem} />
-                </div>
-            ) : (
+    if (!error) {
+        <div className={classes.loader}>
+            <h3>Error en la comunicación con el servidor</h3>
+        </div>
+    }
+
+    return breedImage.length > 0
+        ? (
+            <ImageItem images={breedImage} title={breed} />
+        ) : (
             <div className={classes.loader}>
-                <h3>Error en la comunicación con el servidor</h3>
+                <AutorenewIcon className={classes.animatedItem} />
             </div>
         )
+
+
 }

@@ -74,8 +74,9 @@ export const ImageItem = ({ images, title }) => {
             )}
         </div>
     )
+}
 
-
-
-
+ImageItem.defaultProps = {
+    images: [],
+    title: ""
 }
