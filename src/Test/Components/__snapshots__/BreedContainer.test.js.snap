@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test on Breed Container component Show BreedContainer correctly 1`] = `
+<div
+  className="makeStyles-loader-1"
+>
+  <Memo(ForwardRef(AutorenewIcon))
+    className="makeStyles-animatedItem-2"
+  />
+</div>
+`;

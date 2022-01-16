@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) =>
             backgroundColor: '#EEEEEE',
             height: '100vh'
         },
-        grid:{ 
+        grid: {
             paddingBottom: '10%'
         },
         title: {
@@ -30,6 +30,16 @@ const useStyles = makeStyles((theme) =>
             maxHeight: '600px',
             overflow: 'auto'
         },
+        spacing: {
+            display: 'flex',
+            justifyContent: 'center',
+            padding: '5% 5% 0% 5%'
+        },
+        subSpacing: {
+            display: 'flex',
+            justifyContent: 'center',
+            padding: '0% 5% 0% 5%'
+        },
     })
 );
 
@@ -39,6 +49,7 @@ export const Home = () => {
     const [subBreedSelected, setSubBreedSelected] = useState([])
     const [subBreeds, setSubBreeds] = useState([])
     const [breeds, setBreeds] = useState([])
+    const [error, setError] = useState(false)
 
     useEffect(() => {
         bringMeBreeds();
@@ -46,25 +57,41 @@ export const Home = () => {
 
     const bringMeBreeds = async () => {
         let response = await getAllBreeds()
-        if (response && response.status) {
+        if (response && response.status === 'success') {
+            setError(false)
             const { message } = response
             let newArrBreeds = []
             let newArrSubBreeds = []
             Object.entries(message).map(([key, val], i) => {
                 if (val.length > 0) {
                     val.map(subbreed => {
-                        return newArrSubBreeds.push({
+                        return newArrSubBreeds = [...newArrSubBreeds, {
                             breed: key.toUpperCase(),
                             subBreed: subbreed.toUpperCase()
-                        })
+                        }]
                     })
                 }
-                return newArrBreeds.push(key.toUpperCase())
+                return newArrBreeds = [...newArrBreeds, key.toUpperCase()]
             }
             )
             setBreeds(newArrBreeds)
             setSubBreeds(newArrSubBreeds)
+        } else {
+            setError(true)
         }
+    }
+
+    if (error) {
+        return (
+            <div >
+                <div className={classes.spacing}>
+                    <h3>Error en la comunicación con el servidor</h3>
+                </div>
+                <br />
+                <div className={classes.subSpacing}>
+                    <p>Por favor vuelve a intentarlo en un momento</p>
+                </div>
+            </div>)
     }
 
     return (
@@ -81,7 +108,7 @@ export const Home = () => {
                             options={breeds}
                             getOptionLabel={(option) => option}
                             onChange={(event, value) => setBreedSelected(value)}
-                            noOptionsText="Error en la comunicación con el servidor"
+                            noOptionsText="Sin opciones para mostrar"
                             renderInput={(params) => (
                                 <TextField
                                     {...params}
@@ -100,7 +127,7 @@ export const Home = () => {
                             groupBy={(option) => option.breed}
                             getOptionLabel={(option) => option.subBreed}
                             onChange={(event, value) => setSubBreedSelected(value)}
-                            noOptionsText="Error en la comunicación con el servidor"
+                            noOptionsText="Sin opciones para mostrar"
                             renderInput={(params) => (
                                 <TextField
                                     {...params}

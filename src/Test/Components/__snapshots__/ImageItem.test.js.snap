@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test on Image Item component Show ImageItem correctly 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <ForwardRef(ImageList)
+    className="makeStyles-imageList-2"
+    cols={3}
+  />
+</div>
+`;

@@ -6,10 +6,11 @@ import AutorenewIcon from '@mui/icons-material/Autorenew';
 
 
 const useStyles = makeStyles((theme) => createStyles({
-    loader: {
+    spacing: {
         display: 'flex',
         justifyContent: 'center',
-        padding: '5%'
+        padding: '5%',
+        fontSize: '20px'
     },
 }))
 
@@ -32,17 +33,19 @@ export const SubBreedContainer = ({ breed, subbreed }) => {
         }
     }
 
-    if (!error) {
-        <div className={classes.loader}>
-            <h3>Error en la comunicación con el servidor</h3>
-        </div>
+    if (error) {
+        return (
+            <div className={classes.spacing}>
+                <p>Error en la comunicación con el servidor</p>
+            </div>
+        )
     }
 
     return subBreedImage.length > 0
         ? (
             <ImageItem images={subBreedImage} title={subbreed} />
         ) : (
-            <div className={classes.loader}>
+            <div className={classes.spacing}>
                 <AutorenewIcon className={classes.animatedItem} />
             </div>
         )
