@@ -4,7 +4,7 @@
 
 In the project directory, you can run:
 
-### `git clone xxxx`
+### `git clone git@github.com:oswmoena/dog-ceo.git`
 
 This command clone the proyect into your computer, then you run clone, you must to run `cd dog-ceo` to enter the proyect.
 
