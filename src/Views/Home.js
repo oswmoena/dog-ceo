@@ -11,12 +11,11 @@ const useStyles = makeStyles((theme) =>
             padding: "1% 5%",
             border: '1px solid #666666',
             color: 'black',
-            fontFamily: 'Roboto-regular'
         },
         home: {
             padding: '2% 7% 0% 7%',
             backgroundColor: '#EEEEEE',
-            height: '100vh'
+            height: '100vh',
         },
         grid: {
             paddingBottom: '10%'
@@ -28,7 +27,7 @@ const useStyles = makeStyles((theme) =>
         },
         imageBlock: {
             maxHeight: '600px',
-            overflow: 'auto'
+            overflow: 'auto',
         },
         spacing: {
             display: 'flex',
@@ -99,7 +98,7 @@ export const Home = () => {
             <Paper elevation={2} className={classes.paper}>
                 <Grid container spacing={3} justifyContent="space-between" className={classes.grid}>
                     <Grid item xs={12} md={12}>
-                        <Typography variant="h3" color="initial" className={classes.title}>Dog-CEO</Typography>
+                        <Typography variant="h3" className={classes.title}>Dog-CEO</Typography>
                     </Grid>
                     <Grid item md={5} xs={12}>
                         <Autocomplete
@@ -112,8 +111,8 @@ export const Home = () => {
                             renderInput={(params) => (
                                 <TextField
                                     {...params}
-                                    variant="standard"
                                     label="Razas"
+                                    variant="outlined"
                                     placeholder="Elige una o más razas"
                                 />
                             )}
@@ -131,8 +130,8 @@ export const Home = () => {
                             renderInput={(params) => (
                                 <TextField
                                     {...params}
-                                    variant="standard"
                                     label="Sub Razas"
+                                    variant="outlined"
                                     placeholder="Elige una o más sub razas"
                                 />
                             )}
@@ -143,7 +142,7 @@ export const Home = () => {
                     {breedSelected.map(breed => {
                         return (
                             <Grid item md={12} xs={12} key={breed}>
-                                <Typography variant="h4" color="initial" className={classes.title}>{breed}</Typography>
+                                <Typography variant="h4" className={classes.title}>{breed}</Typography>
                                 <BreedContainer breed={breed} />
                             </Grid>
                         )
@@ -152,7 +151,7 @@ export const Home = () => {
                     {subBreedSelected.map(({ breed, subBreed }) => {
                         return (
                             <Grid item md={12} xs={12} key={subBreed}>
-                                <Typography variant="h4" color="initial" className={classes.title}>{breed} - {subBreed}</Typography>
+                                <Typography variant="h4" className={classes.title}>{breed} - {subBreed}</Typography>
                                 <SubBreedContainer breed={breed} subbreed={subBreed} />
                             </Grid>
                         )

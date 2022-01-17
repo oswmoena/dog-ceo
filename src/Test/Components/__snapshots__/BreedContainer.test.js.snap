@@ -2,7 +2,7 @@
 
 exports[`Test on Breed Container component Show BreedContainer correctly 1`] = `
 <div
-  className="makeStyles-loader-1"
+  className="makeStyles-spacing-1"
 >
   <Memo(ForwardRef(AutorenewIcon))
     className="makeStyles-animatedItem-2"

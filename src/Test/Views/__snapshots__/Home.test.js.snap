@@ -21,7 +21,6 @@ exports[`Test on Home view Show Home correctly 1`] = `
       >
         <ForwardRef(Typography)
           className="makeStyles-title-4"
-          color="initial"
           variant="h3"
         >
           Dog-CEO
@@ -36,7 +35,7 @@ exports[`Test on Home view Show Home correctly 1`] = `
           getOptionLabel={[Function]}
           id="breeds"
           multiple={true}
-          noOptionsText="Error en la comunicación con el servidor"
+          noOptionsText="Sin opciones para mostrar"
           onChange={[Function]}
           options={Array []}
           renderInput={[Function]}
@@ -52,7 +51,7 @@ exports[`Test on Home view Show Home correctly 1`] = `
           groupBy={[Function]}
           id="sub-breeds"
           multiple={true}
-          noOptionsText="Error en la comunicación con el servidor"
+          noOptionsText="Sin opciones para mostrar"
           onChange={[Function]}
           options={Array []}
           renderInput={[Function]}
